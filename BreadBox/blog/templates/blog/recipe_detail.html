@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>{{ recipe.title }}</h1>
+    <p>Servings: {{ recipe.servings }}</p>
+    <p>Prep Time: {{ recipe.prep_time }} minutes</p>
+    <p>Cook Time: {{ recipe.cook_time }} minutes</p>
+    <p>Rise Time: {{ recipe.rise_time }} minutes</p>
+    <p>Total Time: {{ recipe.total_time }} minutes</p>
+    <h2>Ingredients</h2>
+    <pre>{{ recipe.ingredients }}</pre>
+
+    <h2>Instructions</h2>
+    <pre>{{ recipe.instructions }}</pre>
+
+    <a href="{% url 'recipe_list' %}">Back to Recipe List</a>
+  </div>
+{% endblock %}
+
