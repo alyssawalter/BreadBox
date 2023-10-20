@@ -24,10 +24,10 @@ To run the "BreadBox" app locally, follow these steps:
    - Make sure you have Python 3.x and Django installed on your system.
 
 2. **Clone the Repository:**
-   ```bash
+  ```bash
    git clone https://github.com/alyssawalter/breadbox.git
    cd breadbox
-   ```
+  ```
    
 3. Set Up a Virtual Environment (Optional):
    - It's a good practice to use a virtual environment for your project to isolate dependencies.
@@ -38,9 +38,9 @@ To run the "BreadBox" app locally, follow these steps:
 
 4. Install Dependencies:
     Install the required Python packages.
-   ```bash
+ ```bash
    pip install -r requirements.txt
-   ```
+ ```
 
 5. Migrate the Database:
     Create the database schema and apply migrations.
