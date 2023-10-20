@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h2>User Profile</h2>
+  {% if user_profile %}
+    <p>Username: {{ user_profile.user.username }}</p>
+    <br>
+    <a href="{% url 'recipe_notes' %}">My Baking Notes</a>
+
+    <!-- Add more profile information here -->
+  {% else %}
+    <p>User is not authenticated. <a href="{% url 'user_login' %}">Login</a></p>
+  {% endif %}
+{% endblock %}
+

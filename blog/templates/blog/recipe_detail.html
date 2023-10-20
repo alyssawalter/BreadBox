@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>{{ recipe.title }}</h1>
+    <p>Servings: {{ recipe.servings }}</p>
+    <p>Prep Time: {{ recipe.prep_time }} minutes</p>
+    <p>Cook Time: {{ recipe.cook_time }} minutes</p>
+    <p>Rise Time: {{ recipe.rise_time }} minutes</p>
+    <p>Total Time: {{ recipe.total_time }} minutes</p>
+    <h2>Ingredients</h2>
+    <pre>{{ recipe.ingredients }}</pre>
+
+    <h2>Instructions</h2>
+    <pre>{{ recipe.instructions }}</pre>
+
+    {% if request.user.is_authenticated %}
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" name="save_recipe">Save Recipe</button>
+    </form>
+	
+    <h2>Add a Note</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ note_form.as_p }}
+      <button type="submit" name="save_note">Save Note</button>
+    </form>
+
+    {% else %}
+      <p>Please <a href="{% url 'user_login' %}">log in</a> to save this recipe.</p>
+    {% endif %}
+
+    <a href="{% url 'recipe_list' %}">Back to Recipe List</a>
+  </div>
+{% endblock %}
+

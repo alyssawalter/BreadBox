@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Bread Box{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .content {
+		
+            max-width: 800px;
+	    min-height: calc(100vh - 100px);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+	    height: 50px
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/blog/recipes">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'user_profile' %}">Profile</a></li>
+                    <li><a href="{% url 'saved_recipes' %}">Saved Recipes</a></li>
+                    <li><a href="{% url 'user_logout' %}">Log out</a></li>
+                {% else %}
+                    <li><a href="{% url 'user_login' %}">Login</a></li>
+                {% endif %}
+                <!-- Add more menu items here -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        &copy; 2023 Bread Box
+    </footer>
+</body>
+</html>
+

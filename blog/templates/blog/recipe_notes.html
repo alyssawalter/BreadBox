@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>My Baking Notes</h1>
+  <ul>
+    {% for note in recipe_notes %}
+      <li>
+        <strong>{{ note.recipe.title }}</strong> ({{ note.date_created|date:"F d, Y" }})
+        <p>{{ note.note_content }}</p>
+      </li>
+    {% empty %}
+      <p>No baking notes found.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

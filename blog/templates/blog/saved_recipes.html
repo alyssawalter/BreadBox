@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Your Saved Recipes</h1>
+    <ul>
+      {% for recipe in saved_recipes %}
+       <li>
+           <a href="{% url 'recipe_detail' recipe.recipe.id %}"> <!-- Assuming the recipe is related to Recipe model -->
+          {{ recipe.recipe.title }} <!-- Debug output -->
+        </a> 
+      </li>
+    {% empty %}
+      <p>No saved recipes found.</p>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'recipe_list' %}">Back to Recipe List</a>
+  </div>
+{% endblock %}
+
