@@ -27,12 +27,14 @@ To run the "BreadBox" app locally, follow these steps:
    ```bash
    git clone https://github.com/alyssawalter/breadbox.git
    cd breadbox
+   ```
    
 3. Set Up a Virtual Environment (Optional):
    - It's a good practice to use a virtual environment for your project to isolate dependencies.
   ```bash
   python -m venv venv
   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
 
 4. Install Dependencies:
     Install the required Python packages.
@@ -43,16 +45,19 @@ To run the "BreadBox" app locally, follow these steps:
     Create the database schema and apply migrations.
   ```bash
   python manage.py migrate
+```
 
 6. Create a Superuser:
     Create an admin user to access the Django admin interface.
   ```bash
   python manage.py createsuperuser
+```
 
 7. Run the Development Server:
     Start the development server.
   ```bash
   python manage.py runserver
+```
 
 8. Access the Application:
     Open a web browser and go to http://127.0.0.1:8000/blog/recipes to access the "BreadBox" app.
